@@ -42,6 +42,9 @@ class CursFeatureWriter(BaseFeatureWriter):
 
         if cursiveAnchors:
             feature = ast.FeatureBlock("curs")
+            feature.statements.append(
+                ast.makeLookupFlag(flags=("IgnoreMarks", "RightToLeft"))
+            )
             for glyphName, anchors in cursiveAnchors.items():
                 statement = ast.CursivePosStatement(glyphName, *anchors)
                 feature.statements.append(statement)
