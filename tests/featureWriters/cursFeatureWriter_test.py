@@ -1,5 +1,6 @@
-import pytest
 from textwrap import dedent
+
+import pytest
 
 from ufo2ft.featureWriters.cursFeatureWriter import CursFeatureWriter
 
