@@ -1,6 +1,8 @@
 from fontTools.misc.fixedTools import otRound
 
 from ufo2ft.featureWriters import BaseFeatureWriter, ast
+from ufo2ft.featureWriters.kernFeatureWriter import unicodeScriptDirection
+from ufo2ft.util import classifyGlyphs
 
 
 class CursFeatureWriter(BaseFeatureWriter):
@@ -22,12 +24,81 @@ class CursFeatureWriter(BaseFeatureWriter):
     entryAnchorNames = {"entry"}
     exitAnchorNames = {"exit"}
 
-    def _write(self):
-        feaFile = self.context.feaFile
-        feature = None
+    def _makeCursiveFeature(self):
+        cmap = self.makeUnicodeToGlyphNameMapping()
+        if any(unicodeScriptDirection(uv) == "LTR" for uv in cmap):
+            gsub = self.compileGSUB()
+            dirGlyphs = classifyGlyphs(unicodeScriptDirection, cmap, gsub)
+            shouldSplit = "LTR" in dirGlyphs
+        else:
+            shouldSplit = False
 
+        lookups = []
+        ordereredGlyphSet = self.getOrderedGlyphSet().items()
+        if shouldSplit:
+            # Make LTR lookup
+            LTRlookup = self._makeCursiveLookup(
+                (
+                    glyph
+                    for (glyphName, glyph) in ordereredGlyphSet
+                    if glyphName in dirGlyphs["LTR"]
+                ),
+                direction="LTR",
+            )
+            if LTRlookup:
+                lookups.append(LTRlookup)
+
+            # Make RTL lookup with other glyphs
+            RTLlookup = self._makeCursiveLookup(
+                (
+                    glyph
+                    for (glyphName, glyph) in ordereredGlyphSet
+                    if glyphName not in dirGlyphs["LTR"]
+                ),
+                direction="RTL",
+            )
+            if RTLlookup:
+                lookups.append(RTLlookup)
+        else:
+            lookup = self._makeCursiveLookup(
+                (glyph for (glyphName, glyph) in ordereredGlyphSet)
+            )
+            if lookup:
+                lookups.append(lookup)
+
+        if lookups:
+            feature = ast.FeatureBlock("curs")
+            feature.statements.extend(lookups)
+            return feature
+
+    def _makeCursiveLookup(self, glyphs, direction=None):
+        statements = self._makeCursiveStatements(glyphs)
+
+        if not statements:
+            return
+
+        suffix = ""
+        if direction == "LTR":
+            suffix = "_ltr"
+        elif direction == "RTL":
+            suffix = "_rtl"
+        lookup = ast.LookupBlock(name=f"curs{suffix}")
+
+        if direction != "LTR":
+            lookup.statements.append(
+                ast.makeLookupFlag(flags=("IgnoreMarks", "RightToLeft"))
+            )
+        else:
+            lookup.statements.append(ast.makeLookupFlag(name="IgnoreMarks"))
+
+        lookup.statements.extend(statements)
+
+        return lookup
+
+    def _makeCursiveStatements(self, glyphs):
         cursiveAnchors = dict()
-        for glyphName, glyph in self.getOrderedGlyphSet().items():
+        statements = []
+        for glyph in glyphs:
             entryAnchor = exitAnchor = None
             for anchor in glyph.anchors:
                 if entryAnchor and exitAnchor:
@@ -38,16 +109,18 @@ class CursFeatureWriter(BaseFeatureWriter):
                     exitAnchor = ast.Anchor(x=otRound(anchor.x), y=otRound(anchor.y))
 
             if entryAnchor or exitAnchor:
-                cursiveAnchors[ast.GlyphName(glyphName)] = (entryAnchor, exitAnchor)
+                cursiveAnchors[ast.GlyphName(glyph.name)] = (entryAnchor, exitAnchor)
 
         if cursiveAnchors:
-            feature = ast.FeatureBlock("curs")
-            feature.statements.append(
-                ast.makeLookupFlag(flags=("IgnoreMarks", "RightToLeft"))
-            )
             for glyphName, anchors in cursiveAnchors.items():
                 statement = ast.CursivePosStatement(glyphName, *anchors)
-                feature.statements.append(statement)
+                statements.append(statement)
+
+        return statements
+
+    def _write(self):
+        feaFile = self.context.feaFile
+        feature = self._makeCursiveFeature()
 
         if not feature:
             return False
