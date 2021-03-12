@@ -6,11 +6,13 @@ from ufo2ft.constants import FEATURE_WRITERS_KEY
 from ufo2ft.util import _loadPluginFromString
 
 from .baseFeatureWriter import BaseFeatureWriter
+from .cursFeatureWriter import CursFeatureWriter
 from .kernFeatureWriter import KernFeatureWriter
 from .markFeatureWriter import MarkFeatureWriter
 
 __all__ = [
     "BaseFeatureWriter",
+    "CursFeatureWriter",
     "KernFeatureWriter",
     "MarkFeatureWriter",
     "loadFeatureWriters",
