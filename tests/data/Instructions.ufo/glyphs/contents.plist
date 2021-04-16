@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>.notdef</key>
+    <string>_notdef.glif</string>
+    <key>A</key>
+    <string>A_.glif</string>
+    <key>CR</key>
+    <string>C_R_.glif</string>
+    <key>E</key>
+    <string>E_.glif</string>
+    <key>I</key>
+    <string>I_.glif</string>
+    <key>NULL</key>
+    <string>N_U_L_L_.glif</string>
+    <key>O</key>
+    <string>O_.glif</string>
+    <key>U</key>
+    <string>U_.glif</string>
+    <key>a</key>
+    <string>a.glif</string>
+    <key>a.005</key>
+    <string>a.005.glif</string>
+    <key>adieresis</key>
+    <string>adieresis.glif</string>
+    <key>e</key>
+    <string>e.glif</string>
+    <key>edieresis</key>
+    <string>edieresis.glif</string>
+    <key>i</key>
+    <string>i.glif</string>
+    <key>o</key>
+    <string>o.glif</string>
+    <key>odieresis</key>
+    <string>odieresis.glif</string>
+    <key>space</key>
+    <string>space.glif</string>
+    <key>u</key>
+    <string>u.glif</string>
+    <key>udieresis</key>
+    <string>udieresis.glif</string>
+    <key>uni0308</key>
+    <string>uni0308.glif</string>
+  </dict>
+</plist>

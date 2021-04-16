@@ -57,6 +57,7 @@ class PostProcessor:
         optimizeCFF=True,
         cffVersion=None,
         subroutinizer=None,
+        compileTrueTypeHinting=True,
     ):
         """
         useProductionNames (Optional[bool]):
@@ -98,6 +99,13 @@ class PostProcessor:
           is True and CFF or CFF2 table is present. Choose between "cffsubr" or
           "compreffor". By default "cffsubr" is used for both CFF 1 and CFF 2.
           NOTE: compreffor currently doesn't support input fonts with CFF2 table.
+
+        compileTrueTypeHinting:
+          Compile TrueType hinting from the UFO, if present. You must make sure
+          that the outlines from the UFO have not been altered before this
+          step. The point indices change e.g. when removing overlaps or
+          changing the path directions. This will most certainly make any
+          hinting data in the source UFO invalid.
         """
         if self._get_cff_version(self.otf):
             self.process_cff(
@@ -105,6 +113,13 @@ class PostProcessor:
                 cffVersion=cffVersion,
                 subroutinizer=subroutinizer,
             )
+
+        if compileTrueTypeHinting and "glyf" in self.otf:
+            self._compile_truetype_hinting()
+            # Force compilation of the font to avoid glyph name problems
+            tmp = BytesIO()
+            self.otf.save(tmp)
+            self.otf = TTFont(tmp)
 
         self.process_glyph_names(useProductionNames)
 
@@ -217,6 +232,13 @@ class PostProcessor:
             # add a suffix to make the production names unique
             rename_map[name] = self._unique_name(valid_name, seen)
         return rename_map
+
+    def _compile_truetype_hinting(self):
+        logger.info("Compiling TrueType hinting")
+        from ufo2ft.instructionCompiler import InstructionCompiler
+
+        ic = InstructionCompiler(ufo=self.ufo, ttf=self.otf)
+        ic.compile()
 
     @staticmethod
     def _unique_name(name, seen):

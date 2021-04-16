@@ -1,0 +1,238 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="A" format="2">
+  <advance width="652"/>
+  <unicode hex="0041"/>
+  <anchor x="365" y="725" name="top"/>
+  <anchor x="321" y="0" name="bottom"/>
+  <outline>
+    <contour>
+      <point x="58" y="-21" type="qcurve" name="ab01"/>
+      <point x="36" y="-21"/>
+      <point x="6" y="13"/>
+      <point x="15" y="46" type="qcurve" name="ah01"/>
+      <point x="58" y="198"/>
+      <point x="188" y="513" name="mh01"/>
+      <point x="268" y="661" type="qcurve"/>
+      <point x="278" y="690"/>
+      <point x="323" y="722"/>
+      <point x="351" y="722" type="qcurve" name="at01"/>
+      <point x="383" y="722"/>
+      <point x="423" y="691"/>
+      <point x="433" y="660" type="qcurve"/>
+      <point x="461" y="597"/>
+      <point x="516" y="446"/>
+      <point x="538" y="374" type="qcurve"/>
+      <point x="555" y="317"/>
+      <point x="584" y="216" name="fh01"/>
+      <point x="609" y="124"/>
+      <point x="627" y="46"/>
+      <point x="632" y="18" type="qcurve" name="sh01"/>
+      <point x="635" y="4"/>
+      <point x="628" y="-18"/>
+      <point x="613" y="-34"/>
+      <point x="593" y="-42"/>
+      <point x="583" y="-42" type="qcurve" name="ab02"/>
+      <point x="569" y="-42"/>
+      <point x="545" y="-25"/>
+      <point x="540" y="-8" type="qcurve" name="ah02"/>
+      <point x="526" y="42"/>
+      <point x="495" y="158"/>
+      <point x="478" y="219" type="qcurve" name="ih02"/>
+      <point x="399" y="215"/>
+      <point x="246" y="204"/>
+      <point x="168" y="196" type="qcurve" name="ih04"/>
+      <point x="152" y="151"/>
+      <point x="124" y="63"/>
+      <point x="112" y="21" type="qcurve" name="sh02"/>
+      <point x="106" y="0"/>
+      <point x="75" y="-21"/>
+    </contour>
+    <contour>
+      <point x="203" y="290" type="qcurve" name="ih03"/>
+      <point x="325" y="302"/>
+      <point x="453" y="308" type="qcurve" name="ih01"/>
+      <point x="441" y="348" type="line"/>
+      <point x="418" y="426"/>
+      <point x="370" y="560"/>
+      <point x="345" y="621" type="qcurve" name="mh02"/>
+      <point x="306" y="537"/>
+      <point x="235" y="373" name="fh02"/>
+    </contour>
+  </outline>
+  <lib>
+    <dict>
+      <key>com.fontlab.ttprogram</key>
+      <string>  &lt;ttProgram&gt;
+    &lt;ttc code="alignh" point="ah01" align="round"/&gt;
+    &lt;ttc code="alignh" point="ah02" align="round"/&gt;
+    &lt;ttc code="mdeltah" point="mh01" delta="2" ppm1="12" ppm2="12"/&gt;
+    &lt;ttc code="mdeltah" point="ah02" delta="-8" ppm1="9" ppm2="11"/&gt;
+    &lt;ttc code="singleh" point1="ah02" point2="sh01" stem="X: 100"/&gt;
+    &lt;ttc code="singleh" point1="ah01" point2="sh02" stem="X: 100"/&gt;
+    &lt;ttc code="interpolateh" point="ih01" point1="sh02" point2="ah02"/&gt;
+    &lt;ttc code="interpolateh" point="ih02" point1="ah02" point2="ih01"/&gt;
+    &lt;ttc code="mdeltah" point="ih02" delta="2" ppm1="12" ppm2="12"/&gt;
+    &lt;ttc code="interpolateh" point="ih03" point1="sh02" point2="ah02"/&gt;
+    &lt;ttc code="interpolateh" point="ih04" point1="sh02" point2="ih03"/&gt;
+    &lt;ttc code="mdeltah" point="ih04" delta="-2" ppm1="12" ppm2="12"/&gt;
+    &lt;ttc code="mdeltah" point="mh02" delta="1" ppm1="12" ppm2="12"/&gt;
+    &lt;ttc code="alignt" point="at01" zone="t: 1"/&gt;
+    &lt;ttc code="alignb" point="ab01" zone="b: 0"/&gt;
+    &lt;ttc code="alignb" point="ab02" zone="b: 0"/&gt;
+    &lt;ttc code="doublev" point1="ih02" point2="ih01" stem="Y: 100"/&gt;
+    &lt;ttc code="singlev" point1="at01" point2="mh02"/&gt;
+    &lt;ttc code="fdeltah" point="fh01" delta="-3" ppm1="10" ppm2="11"/&gt;
+    &lt;ttc code="fdeltah" point="fh02" delta="-2" ppm1="12" ppm2="12"/&gt;
+  &lt;/ttProgram&gt;
+</string>
+      <key>public.truetype.instructions</key>
+      <dict>
+        <key>assembly</key>
+        <string>
+PUSHB[ ]	/* 1 value pushed */
+3
+MDAP[1]	/* MoveDirectAbsPt */
+PUSHB[ ]	/* 1 value pushed */
+28
+MDAP[1]	/* MoveDirectAbsPt */
+PUSHB[ ]	/* 3 values pushed */
+57 5 1
+DELTAP1[ ]	/* DeltaExceptionP1 */
+NPUSHB[ ]	/* 9 values pushed */
+32 28 1 16 28 1 0 28 1
+DELTAP1[ ]	/* DeltaExceptionP1 */
+DELTAP1[ ]	/* DeltaExceptionP1 */
+DELTAP1[ ]	/* DeltaExceptionP1 */
+PUSHB[ ]	/* 2 values pushed */
+20 2
+MIRP[10100]	/* MoveIndirectRelPt */
+PUSHB[ ]	/* 1 value pushed */
+3
+SRP0[ ]	/* SetRefPoint0 */
+PUSHB[ ]	/* 2 values pushed */
+37 2
+MIRP[10100]	/* MoveIndirectRelPt */
+PUSHB[ ]	/* 3 values pushed */
+42 28 37
+SRP1[ ]	/* SetRefPoint1 */
+SRP2[ ]	/* SetRefPoint2 */
+IP[ ]	/* InterpolatePts */
+PUSHB[ ]	/* 3 values pushed */
+31 42 28
+SRP1[ ]	/* SetRefPoint1 */
+SRP2[ ]	/* SetRefPoint2 */
+IP[ ]	/* InterpolatePts */
+PUSHB[ ]	/* 3 values pushed */
+57 31 1
+DELTAP1[ ]	/* DeltaExceptionP1 */
+PUSHB[ ]	/* 3 values pushed */
+40 28 37
+SRP1[ ]	/* SetRefPoint1 */
+SRP2[ ]	/* SetRefPoint2 */
+IP[ ]	/* InterpolatePts */
+PUSHB[ ]	/* 3 values pushed */
+34 40 37
+SRP1[ ]	/* SetRefPoint1 */
+SRP2[ ]	/* SetRefPoint2 */
+IP[ ]	/* InterpolatePts */
+PUSHB[ ]	/* 3 values pushed */
+54 34 1
+DELTAP1[ ]	/* DeltaExceptionP1 */
+PUSHB[ ]	/* 3 values pushed */
+56 46 1
+DELTAP1[ ]	/* DeltaExceptionP1 */
+SVTCA[0]	/* SetFPVectorToAxis */
+PUSHB[ ]	/* 3 values pushed */
+9 9 0
+RCVT[ ]	/* ReadCVT */
+IF[ ]	/* If */
+  PUSHB[ ]	/* 1 value pushed */
+  1
+  ADD[ ]	/* Add */
+  RCVT[ ]	/* ReadCVT */
+  SWAP[ ]	/* SwapTopStack */
+  DUP[ ]	/* DuplicateTopStack */
+  DUP[ ]	/* DuplicateTopStack */
+  SRP0[ ]	/* SetRefPoint0 */
+  ROLL[ ]	/* RollTopThreeStack */
+  MSIRP[0]	/* MoveStackIndirRelPt */
+  MDAP[1]	/* MoveDirectAbsPt */
+ELSE[ ]	/* Else */
+  SWAP[ ]	/* SwapTopStack */
+  DUP[ ]	/* DuplicateTopStack */
+  SRP2[ ]	/* SetRefPoint2 */
+  SWAP[ ]	/* SwapTopStack */
+  MIAP[0]	/* MoveIndirectAbsPt */
+EIF[ ]	/* EndIf */
+PUSHB[ ]	/* 3 values pushed */
+0 3 0
+RCVT[ ]	/* ReadCVT */
+IF[ ]	/* If */
+  PUSHB[ ]	/* 1 value pushed */
+  1
+  ADD[ ]	/* Add */
+  RCVT[ ]	/* ReadCVT */
+  SWAP[ ]	/* SwapTopStack */
+  DUP[ ]	/* DuplicateTopStack */
+  DUP[ ]	/* DuplicateTopStack */
+  SRP0[ ]	/* SetRefPoint0 */
+  ROLL[ ]	/* RollTopThreeStack */
+  MSIRP[0]	/* MoveStackIndirRelPt */
+  MDAP[1]	/* MoveDirectAbsPt */
+ELSE[ ]	/* Else */
+  SWAP[ ]	/* SwapTopStack */
+  DUP[ ]	/* DuplicateTopStack */
+  SRP2[ ]	/* SetRefPoint2 */
+  SWAP[ ]	/* SwapTopStack */
+  MIAP[0]	/* MoveIndirectAbsPt */
+EIF[ ]	/* EndIf */
+PUSHB[ ]	/* 3 values pushed */
+25 3 0
+RCVT[ ]	/* ReadCVT */
+IF[ ]	/* If */
+  PUSHB[ ]	/* 1 value pushed */
+  1
+  ADD[ ]	/* Add */
+  RCVT[ ]	/* ReadCVT */
+  SWAP[ ]	/* SwapTopStack */
+  DUP[ ]	/* DuplicateTopStack */
+  DUP[ ]	/* DuplicateTopStack */
+  SRP0[ ]	/* SetRefPoint0 */
+  ROLL[ ]	/* RollTopThreeStack */
+  MSIRP[0]	/* MoveStackIndirRelPt */
+  MDAP[1]	/* MoveDirectAbsPt */
+ELSE[ ]	/* Else */
+  SWAP[ ]	/* SwapTopStack */
+  DUP[ ]	/* DuplicateTopStack */
+  SRP2[ ]	/* SetRefPoint2 */
+  SWAP[ ]	/* SwapTopStack */
+  MIAP[0]	/* MoveIndirectAbsPt */
+EIF[ ]	/* EndIf */
+PUSHB[ ]	/* 4 values pushed */
+31 1 42 3
+CALL[ ]	/* CallFunction */
+PUSHB[ ]	/* 1 value pushed */
+9
+SRP0[ ]	/* SetRefPoint0 */
+PUSHB[ ]	/* 1 value pushed */
+46
+MDRP[10000]	/* MoveDirectRelPt */
+IUP[0]	/* InterpolateUntPts */
+IUP[1]	/* InterpolateUntPts */
+SVTCA[1]	/* SetFPVectorToAxis */
+PUSHB[ ]	/* 6 values pushed */
+37 17 1 21 17 1
+DELTAP1[ ]	/* DeltaExceptionP1 */
+DELTAP1[ ]	/* DeltaExceptionP1 */
+PUSHB[ ]	/* 3 values pushed */
+54 48 1
+DELTAP1[ ]	/* DeltaExceptionP1 */
+</string>
+        <key>formatVersion</key>
+        <string>1</string>
+        <key>id</key>
+        <string>d0b9efba65108827703ed3e672c5041983cee80e7be6144acc681627361b3929b32e06e6c52b2fee09175a182b8cce21bbf72f145c7969bceabf8e309cf3c2f8</string>
+      </dict>
+    </dict>
+  </lib>
+</glyph>
