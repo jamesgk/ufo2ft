@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>com.github.googlei18n.ufo2ft.filters</key>
+	<array>
+		<dict>
+			<key>name</key>
+			<string>scaleUPM</string>
+			<key>kwargs</key>
+			<dict>
+				<key>unitsPerEm</key>
+				<string>2048</string>
+			</dict>
+		</dict>
+	</array>
+	<key>com.schriftgestaltung.disablesAutomaticAlignment</key>
+	<false/>
+	<key>com.schriftgestaltung.fontMaster.customParameters</key>
+	<array>
+		<dict>
+			<key>name</key>
+			<string>Default Layer Width</string>
+			<key>value</key>
+			<string>560</string>
+		</dict>
+	</array>
+	<key>com.schriftgestaltung.fontMasterID</key>
+	<string>83692D61-586C-413E-9B5A-1AF652750951</string>
+	<key>com.schriftgestaltung.glyphOrder</key>
+	<false/>
+	<key>com.schriftgestaltung.gridSize</key>
+	<integer>80</integer>
+	<key>com.schriftgestaltung.gridSubDivision</key>
+	<integer>80</integer>
+	<key>com.schriftgestaltung.useNiceNames</key>
+	<true/>
+	<key>com.schriftgestaltung.weightValue</key>
+	<integer>100</integer>
+	<key>public.glyphOrder</key>
+	<array>
+		<string>A</string>
+		<string>O</string>
+	</array>
+</dict>
+</plist>

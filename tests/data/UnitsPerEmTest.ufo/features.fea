@@ -1,0 +1,7 @@
+# automatic
+@Uppercase = [ A O ];
+
+feature cpsp {
+pos @Uppercase <10 0 20 0>;
+} cpsp;
+
