@@ -45,7 +45,7 @@ class RemoveOverlapsFilter(BaseFilter):
         pen = getattr(glyph, self.penGetter)()
         try:
             self.union(contours, pen)
-        except self.Error:
+        except (self.Error, ValueError, TypeError):
             logger.error("Failed to remove overlaps for %s", glyph.name)
             raise
         return True
